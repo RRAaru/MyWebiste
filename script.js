@@ -4,10 +4,14 @@ const ghost=document.querySelectorAll('#ghost');
 const follow = document.getElementById('follow');
 const odiv=document.querySelector('.main');
 const body=document.getElementById('body');
+const box=document.getElementById('box');
+const Name=document.getElementById('name');
 let number=0;
 img.onclick=function(){
     img.classList='imgClick';
     buttonBox.classList='buttonBox';
+    box.classList='box';
+    Name.classList='name';
 }
 
 document.addEventListener('mousemove', function(e) {
@@ -24,6 +28,7 @@ document.addEventListener('mousemove', function(e) {
         follow.classList='follow';
         follow.style.left = x - 50 + 'px';
         follow.style.top = y - 50 + 'px';
+        follow.style.backgroundPosition = -x + 'px ' + -y + 'px';
     }
   });
 
@@ -38,8 +43,8 @@ ghost.forEach(element => {
         set.style.opacity=1;
     });
     while (true) {
-        x=Math.floor(Math.random() * (1800 - 0 + 1)) + 0 ;
-        y=Math.floor(Math.random() * (850 - 0 + 1)) + 0 ;
+        x=Math.floor(Math.random() * ((body.getBoundingClientRect().right - 64) + 1));
+        y=Math.floor(Math.random() * ((body.getBoundingClientRect().bottom - 64) + 1));
         set.style.left=x+'px';
         set.style.top=y+'px';
         if(x>=div_x-50 & x<=div_x+850 & y>=div_y-50 & y<=div_y+450){
