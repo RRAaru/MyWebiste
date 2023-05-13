@@ -6,12 +6,28 @@ const odiv=document.querySelector('.main');
 const body=document.getElementById('body');
 const box=document.getElementById('box');
 const Name=document.getElementById('name');
+const notThing=document.getElementById('notThing');
+const infoModal=document.querySelector("#infoModal");
+const github=document.getElementById('github');
+const pr=document.getElementById('pr');
+const aboutme=document.getElementById('aboutme');
+
 let number=0;
 img.onclick=function(){
     img.classList='imgClick';
     buttonBox.classList='buttonBox';
     box.classList='box';
     Name.classList='name';
+}
+
+aboutme.onclick=function(){
+    pr.classList='none';
+    box.classList='box';
+}
+
+github.onclick=function(){
+    pr.classList='pr';
+    box.classList='none';
 }
 
 document.addEventListener('mousemove', function(e) {
@@ -54,3 +70,13 @@ ghost.forEach(element => {
         }
     }
 });
+
+let close=document.querySelector("#close");
+notThing.addEventListener("click", function(){
+  infoModal.showModal();
+})
+close.addEventListener("click", function(){
+  infoModal.close();
+})
+
+
