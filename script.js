@@ -1,23 +1,30 @@
-const img=document.getElementById('img');
 const buttonBox=document.querySelector('#buttonBox');
-const ghost=document.querySelectorAll('#ghost');
-const follow = document.getElementById('follow');
-const odiv=document.querySelector('.main');
-const body=document.getElementById('body');
-const box=document.getElementById('box');
-const Name=document.getElementById('name');
-const notThing=document.getElementById('notThing');
 const infoModal=document.querySelector("#infoModal");
-const github=document.getElementById('github');
-const pr=document.getElementById('pr');
+const notThing=document.getElementById('notThing');
 const aboutme=document.getElementById('aboutme');
+const ghost=document.querySelectorAll('#ghost');
+const follow=document.getElementById('follow');
+const amount=document.getElementById('amount');
+const github=document.getElementById('github');
+const close=document.querySelector("#close");
+const body=document.getElementById('body');
+const Name=document.getElementById('name');
+const odiv=document.querySelector('.main');
+const img=document.getElementById('img');
+const box=document.getElementById('box');
+const pr=document.getElementById('pr');
 
 let number=0;
+let gamount=0;
+
 img.onclick=function(){
+    if (img.classList=='img') {
+        box.classList='box';
+        Name.classList='name';
+        amount.classList='amount';
+    }
     img.classList='imgClick';
     buttonBox.classList='buttonBox';
-    box.classList='box';
-    Name.classList='name';
 }
 
 aboutme.onclick=function(){
@@ -54,9 +61,11 @@ ghost.forEach(element => {
     number+=1;
     element.classList='ghost'+number;
     const set=document.querySelector('.ghost'+number);
+
     element.addEventListener('click', function(){
-        set.src='img/dead.png';
-        set.style.opacity=1;
+        gamount+=1;
+        set.classList="none";
+        document.getElementById('dead'+gamount).classList='';
     });
     while (true) {
         x=Math.floor(Math.random() * ((body.getBoundingClientRect().right - 64) + 1));
@@ -71,12 +80,11 @@ ghost.forEach(element => {
     }
 });
 
-let close=document.querySelector("#close");
 notThing.addEventListener("click", function(){
   infoModal.showModal();
+  infoModal.className="";
 })
 close.addEventListener("click", function(){
+  infoModal.className="none";
   infoModal.close();
 })
-
-
