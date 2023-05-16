@@ -11,10 +11,10 @@ p{
 }
 
 .box{
-    max-width:150px;
+    max-width:200px;
     height: auto;
     justify-content: center;
-    left: 400px;
+    left: 250px;
     top: 0px;
     animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
@@ -226,4 +226,26 @@ dialog::backdrop {
     left: 1px;
     margin: 5px;
     z-index: 2;
+    animation: slide-in-bottom 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ffcc00;
+    animation: explode 1s forwards;
+  }
+  
+  @keyframes explode {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
