@@ -40,8 +40,8 @@ github.onclick=function(){
 document.addEventListener('mousemove', function(e) {
     let x = e.clientX;
     let y = e.clientY;
-    div_x=odiv.getBoundingClientRect().left;
-    div_y=odiv.getBoundingClientRect().top;
+    let div_x=odiv.getBoundingClientRect().left;
+    let div_y=odiv.getBoundingClientRect().top;
     if(x>=div_x & x<=div_x+800 & y>=div_y & y<=div_y+400){
         follow.classList='none';
         body.style.cursor='auto';
@@ -68,8 +68,8 @@ ghost.forEach(element => {
         document.getElementById('dead'+gamount).classList='';
     });
     while (true) {
-        x=Math.floor(Math.random() * ((body.getBoundingClientRect().right - 64) + 1));
-        y=Math.floor(Math.random() * ((body.getBoundingClientRect().bottom - 64) + 1));
+        let x=Math.floor(Math.random() * ((body.getBoundingClientRect().right - 64) + 1));
+        let y=Math.floor(Math.random() * ((body.getBoundingClientRect().bottom - 64) + 1));
         set.style.left=x+'px';
         set.style.top=y+'px';
         if(x>=div_x-50 & x<=div_x+850 & y>=div_y-50 & y<=div_y+450){
